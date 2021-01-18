@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Amicus Curiae Networks</title>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="//www.w3schools.com/lib/w3.css"/>
+  <link rel="stylesheet" type="text/css" media="screen" href="css/stylin.css"/>
+  <link href="https://fonts.googleapis.com/css?family=Alegreya+Sans+SC:400|Roboto" rel="stylesheet">
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+</head>
+<body id="about">
+<div class="container">
+  <div id="header">
+    <span id="header-left"></span><span id="header-middle"></span><span id="header-right"></span>
+  </div>
+  <div id="menu" class="menu"></div>
+  <script id="menu-template" type="text/x-tmpl-mustache">
+    {{#pages}}
+    <span id={{id}}><a href={{href}}>{{name}}</a></span>
+    {{/pages}}
+  </script>
+  <div id="side_info" class="main_nav"></div>
+  <div class="content">
+    <h1>About</h1>
+    <p>In order to study the formation and impact of interest group networks, the Amicus Curiae Networks Project created
+      a database of all the interest groups (organizations, associations and corporations) that have signed onto amicus
+      curiae briefs in the last 90 years. This list of cosignatories makes it possible for the first time to trace the
+      purposive and coordinated behavior of a comprehensive collection of interest groups.
+      <!-- The Project has added to the network data basic information about each of the interest groups from business and lobbying directories to model the factors influencing the formation of these networks and the impact of these networks on interest group eﬀectiveness in legislative and judicial decision making. -->
+    </p>
+    <h1>Support</h1>
+    <p>The Project is made possible by support from the National Science Foundation's Social and Economic Sciences
+      Division under the Directorate for Social, Behavioral & Economic Sciences:
+    </p>
+    <ul>
+      <li>"The Evolution and Influence of Interest Group Networks." Law and Social Science Program Awards 1124386 &
+        1124369.
+      <li>"Modeling Unobserved Heterogeneity in Network Formation." Method, Measurement and Statistics Program and
+        Political Science Program Awards 1528739 & 1528705.
+    </ul>
+    <h1>Citations</h1>
+    <p>How to Cite this Database:</p>
+    <p>Box-Steffensmeier, Janet & Dino P. Christenson. 2012. Database on Supreme Court Amicus Curiae Briefs. Version 1.0
+      [Computer file]. &lsaquo;http://amicinetworks.com&rsaquo;.</p>
+  </div>
+  <footer id="footer"></footer>
+  <script type="text/javascript" src="./js/mustache.min.js"></script>
+  <script type="text/javascript" src="./js/template.js"></script>
+  <script src="//code.jquery.com/jquery-3.1.1.min.js"
+          integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+          crossorigin="anonymous"></script>
+  <script type="text/javascript" src="js/FeedEk.js"></script>
+  <script type="text/javascript" src="js/recent.js"></script>
+</div>
+</body>
+</html>

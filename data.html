@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Amicus Curiae Networks</title>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="//www.w3schools.com/lib/w3.css"/>
+  <link rel="stylesheet" type="text/css" href="./css/select2.min.css"/>
+  <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.13/css/jquery.dataTables.min.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Ladda/1.0.1/ladda-themeless.min.css"
+        integrity="sha256-qj+2zCT2uHI/NSTv7154sqdbmbNaxKFIfVJN4pvSv0M=" crossorigin="anonymous"/>
+  <link rel="stylesheet" type="text/css" media="screen" href="./css/stylin.css"/>
+  <link rel="stylesheet" type="text/css" href="./css/nouislider.css"/>
+  <link rel="stylesheet" type="text/css" href="./css/data.css"/>
+  <link rel="stylesheet" type="text/css" href="./css/pagination.css"/>
+  <link href="https://fonts.googleapis.com/css?family=Alegreya+Sans+SC:400|Roboto" rel="stylesheet">
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+</head>
+<body id="data">
+<div class="container">
+  <div id="header">
+    <span id="header-left"></span><span id="header-middle"></span><span id="header-right"></span>
+  </div>
+  <div id="menu" class="menu"></div>
+  <!-- The menu/tab-bar is rendered using handlebars in the template.js file. -->
+  <script id="menu-template" type="text/x-tmpl-mustache">
+    {{#pages}}
+    <span id={{id}}><a href={{href}}>{{name}}</a></span>
+    {{/pages}}
+  </script>
+  <div id="side_info" class="main_nav">
+    <div class="sub_menu">
+      <div> Query Database</div>
+      <div id="db-search">
+        <form id="form" method="GET">
+          <div class="form-group">
+            <label for="caseid">Case ID:</label>
+            <input id="caseid" type="text" placeholder=" e.g. 2009-001 or 2009" name="caseid">
+          </div>
+
+          <div class="form-group">
+            <label>Opinion Year:</label>
+            <span id="slider-range"></span>
+            <input id="min" name="range" type="text" placeholder="min" readonly>
+            <input id="max" name="range" type="text" placeholder="max" readonly>
+            <div class="clear"></div>
+          </div>
+
+          <div class="form-group">
+            <label for="organizations">Organizations:</label>
+            <label class="radio">
+              <input type="radio" id="and" name="and" value="true" checked>And
+            </label>
+
+            <label class="radio">
+              <input type="radio" id="or" name="and" value="false">Or
+            </label>
+
+            <select id="organizations" class="organization-input" name="organizations" multiple></select>
+          </div>
+          <button id="query-button" class="qdb" type="button">Query</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div id="content">
+    <div id="data-table">
+      <table id="table" class="display" cellspacing="0" width="100%">
+        <thead>
+        <tr>
+          <th></th>
+          <th>Brief Id</th>
+          <th>Direction</th>
+          <th>Case Id</th>
+          <th>Name</th>
+          <th>Decision</th>
+        </tr>
+        </thead>
+      </table>
+    </div>
+    <div class="w3-row">
+      <div class="w3-col">
+        <button class="ladda-button download" data-style="zoom-out"><span class="ladda-label">Download</span></button>
+      </div>
+    </div>
+  </div>
+
+  <div id="submit-edit" class="w3-modal">
+    <div class="w3-modal-content modal-form">
+      <div id="form-container" class="w3-container form-container">
+        <span id="close-edit-form" class="w3-closebtn">&times;</span>
+      </div>
+    </div>
+  </div>
+
+  <div id="terms-of-use" class="w3-modal">
+    <div class="w3-modal-content modal-content-auto">
+      <div class="w3-container">
+        <span id="close-terms" class="w3-closebtn">&times;</span>
+        <h1>Terms Of Use</h1>
+        <hr>
+        <p>By clicking X, you agree to the collection, use, disclosure and transfer of information as described in the
+          <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons
+            Attribution-NonCommercial-ShareAlike 4.0 International License</a>.
+          Under the following terms, you must give appropriate credit, provide a link to the license,
+          and indicate if changes to material were made. You may do so in any reasonable manner,
+          but not in any way that suggests the licensor endorses you or your use.
+          You may not use the material for commercial purposes. If you remix, transform, or
+          build upon the material, you must distribute your contributions under the same
+          license as the original.</p>
+        <h4>How to Cite this Database:</h4>
+        <p>Box-Steffensmeier, Janet & Dino P. Christenson. 2012. Database on Supreme Court Amicus Curiae Briefs. Version
+          1.0
+          [Computer file]. &lsaquo;http://amicinetworks.com&rsaquo;.</p>
+
+        <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">
+          <img alt="Creative Commons License" src="images/by-nc-sa-88x31.png"/>
+        </a>
+        <br>
+        <br>
+      </div>
+    </div>
+  </div>
+  <!-- Footer is set through the template.js file -->
+  <footer id="footer"></footer>
+
+</div>
+<script type="text/javascript" src="./js/mustache.min.js"></script>
+<script type="text/javascript" src="./js/template.js"></script>
+<script src="//code.jquery.com/jquery-3.1.1.min.js"
+        integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+        crossorigin="anonymous"></script>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+        integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+        crossorigin="anonymous"></script>
+<script src="//cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="./js/select2.full.min.js"></script>
+<script type="text/javascript" src="./js/filesaver.js"></script>
+<script type="text/javascript" src="./js/FeedEk.js"></script>
+<script type="text/javascript" src="js/recent.js"></script>
+<script type="text/javascript" src="./js/nouislider.js"></script>
+<script type="text/javascript" src="./js/data.js"></script>
+<script type="text/javascript" src="./js/spin.js"></script>
+<script type="text/javascript" src="./js/jquery.simplePagination.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/Ladda/1.0.1/spin.min.js"
+        integrity="sha256-oNtUmAZAsXy3Pg53xwfYE1YYgfdktOImDPd57g6Ldek=" crossorigin="anonymous"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/Ladda/1.0.1/ladda.min.js"
+        integrity="sha256-5HH0pMiF5FysoeSnW31gSRNgytTvXvjudDLOUe5KdY0=" crossorigin="anonymous"></script>
+</body>
+</html>
