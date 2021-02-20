@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Amicus Curiae Networks</title>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="//www.w3schools.com/lib/w3.css"/>
+  <link rel="stylesheet" type="text/css" media="screen" href="css/stylin.css"/>
+  <link href="https://fonts.googleapis.com/css?family=Alegreya+Sans+SC:400|Roboto" rel="stylesheet">
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  
+</head>
+<body id="visualizations">
+<div class="container">
+  <div id="header">
+    <span id="header-left"></span><span id="header-middle"></span><span id="header-right"></span>
+  </div>
+  <div id="menu" class="menu"></div>
+  <script id="menu-template" type="text/x-tmpl-mustache">
+    {{#pages}}
+    <span id={{id}}><a href={{href}}>{{name}}</a></span>
+    {{/pages}}
+  </script>
+  <div id="side_info" class="main_nav"></div>
+  <div class="content">
+
+    <div class="drop-down">
+      <i id="time-place-scope-expand" onclick="expand('time-place-scope')" class="fa fa-plus expand"></i>
+      <i id="time-place-scope-contract" onclick="contract('time-place-scope')" class="fa fa-minus contract"></i>
+      <h2>Time, Place and Scope: A Journey through the U.S. Supreme Court & its Friends Visualizations</h2>
+    </div>
+
+    <hr>
+    
+    <div id="time-place-scope">
+      <h3>Total Petitions Filed</h3>
+      <img src="images/visualizations/visualization-1.jpg" alt="Total Petitions Filed">
+
+      <h3>Cases on the Docket</h3>
+      <img src="images/visualizations/visualization-2.jpg" alt="Cases on the Docket">
+
+      <h3>State Origin of Cases on U.S. Supreme Court Docket</h3>
+      <img src="images/visualizations/visualization-3.png" alt="State Origin of Cases on U.S. Supreme Court Docket">
+
+      <h3>Distribution of cases and Amicus Briefs per Year by Issue Area</h3>
+      <img src="images/visualizations/visualization-4.png" alt="Distribution of cases and Amicus Briefs per Year by Issue Area">
+
+      <h3>Distribution of cases and Interest Groups per State by Issue Area</h3>
+      <img src="images/visualizations/visualization-5.png" alt="Distribution of cases and Amicus Briefs per Year by Issue Area">
+
+      <h3>Distribution of cases and Interest Groups per Issue Area</h3>
+      <img src="images/visualizations/visualization-6.png" alt="Distribution of cases and Interest Groups per Issue Area">
+    </div>
+
+    <script>
+      function expand(expand_id) {
+        document.getElementById(expand_id).style.display = "block";
+        document.getElementById(`${expand_id}-contract`).style.display = "block";
+        document.getElementById(`${expand_id}-expand`).style.display = "none";
+      }
+
+      function contract(contract_id) {
+        document.getElementById(contract_id).style.display = "none";
+        document.getElementById(`${contract_id}-contract`).style.display = "none";
+        document.getElementById(`${contract_id}-expand`).style.display = "block";
+      }
+    </script>
+
+    <style>
+        .content img {
+            width: 60%;
+            height: 60%;
+        }
+
+        h2 {
+          font-size: 15pt;
+        }
+
+        h3 {
+          font-size: 12pt;
+        }
+
+        .drop-down i {
+          float: left;
+          font-size: 15pt;
+          margin-top: 6px;
+          margin-right: 20px;
+          cursor: pointer;
+        }
+
+        .expand {
+          display: none;
+        }
+    </style>
+  </div>
+  <footer id="footer"></footer>
+  <script type="text/javascript" src="./js/mustache.min.js"></script>
+  <script type="text/javascript" src="./js/template.js"></script>
+  <script src="//code.jquery.com/jquery-3.1.1.min.js"
+          integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+          crossorigin="anonymous"></script>
+  <script type="text/javascript" src="js/FeedEk.js"></script>
+  <script type="text/javascript" src="js/recent.js"></script>
+</div>
+</body>
+</html>

@@ -124,7 +124,8 @@ body#team span#menu-team,
 body#research span#menu-research,
 body#news span#menu-news,
 body#data span#menu-data,
-body#software span#menu-software {
+body#software span#menu-software,
+body#visualizations span#menu-visualizations {
   background: #80bfff;
 }
 
@@ -134,7 +135,8 @@ body#team span#menu-team a:hover,
 body#research span#menu-research a:hover,
 body#news span#menu-news a:hover,
 body#data span#menu-data a:hover,
-body#software span#menu-software a:hover {
+body#software span#menu-software a:hover,
+body#visualizations span#menu-visualizations a:hover{
   color: #fff;
   text-decoration: none;
 }
